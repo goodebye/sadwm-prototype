@@ -20,10 +20,13 @@ class Workspace {
     
   }
   arrangeWindows(screenSize) {
-    this.windows.forEach((wid, index) => {
-      let pos = { x: screenSize.w / windows.length * index, y: 0 };
-      let sz = { w: screenSize.w / windows.length, h: screenSize.h };
-      execSync(`wtp ${wid} ${pos.x} ${pos.y} ${pos.w} ${pos.h}`);
+	  console.log(screenSize)
+    this.wids.forEach((wid, index) => {
+	    console.log("index", index)
+      let pos = { x: screenSize.w / this.wids.length * index, y: 0 };
+      let sz = { w: screenSize.w / this.wids.length, h: screenSize.h };
+      console.log(pos, sz);
+      execSync(`wtp ${pos.x} ${pos.y} ${sz.w} ${sz.h} ${wid}`);
     })
   }
 }
