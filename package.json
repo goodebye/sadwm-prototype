@@ -1,0 +1,22 @@
+{
+  "name": "sadwm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodebye/sadwm-prototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodebye/sadwm-prototype/issues"
+  },
+  "homepage": "https://github.com/goodebye/sadwm-prototype#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}

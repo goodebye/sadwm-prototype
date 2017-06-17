@@ -1,4 +1,4 @@
-const exec = require("child_process").exec;
+const _ = require("underscore");
 const execSync = require("child_process").execSync;
 const Window = require("./window.js");
 const Workspace = require("./workspace.js");
@@ -10,8 +10,6 @@ workspaces.push(new Workspace(workspaces.length));
 workspaces.push(new Workspace(workspaces.length));
 
 let activeWorkspace = 0;
-
-// lets grab screen height n width first!
 
 const screenSize = {w: 0, h: 0}
 screenSize.w = parseInt(execSync("wattr w $(lsw -r)"), 10);
@@ -28,6 +26,15 @@ let wids = execSync("lsw").toString().split("\n").map((wid) => {
 workspaces[1].addWindow(wids[Math.floor(Math.random() * wids.length)]);
 
 function switchWorkspace(wsid) {
+  const oldWorkspace = workspaces[activeWorkspace];
+  const newWorkspace = workspaces[wsid];
+  const oldVisibleWids = oldWorkspace.getWids();
+  const newVisibleWids = newWorkspace.getWids();
+
+  const widsToHide = _.difference(oldVisibleWids, newVisibleWids);
+
+  console.log(widsToHide);
+  
   activeWorkspace = wsid;
   workspaces[wsid].arrangeWindows(screenSize);
 }

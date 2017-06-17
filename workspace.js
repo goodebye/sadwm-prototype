@@ -6,6 +6,7 @@ class Workspace {
     this.id = id;
     this.windows = {};
     this.wids = [];
+    this.focus = 0;
   }
   addWindow(wid) {
     this.wids.push(wid);
@@ -18,6 +19,9 @@ class Workspace {
   }
   closeWindow(wid) {
     
+  }
+  getWids() {
+    return this.wids;
   }
   arrangeWindows(screenSize) {
 	  console.log(screenSize)
