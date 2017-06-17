@@ -1,3 +1,5 @@
+const execSync = require("child_process").execSync
+
 class Workspace {
   constructor(id) {
     this.focus = 0;
@@ -16,6 +18,13 @@ class Workspace {
   }
   closeWindow(wid) {
     
+  }
+  arrangeWindows(screenSize) {
+    this.windows.forEach((wid, index) => {
+      let pos = { x: screenSize.w / windows.length * index, y: 0 };
+      let sz = { w: screenSize.w / windows.length, h: screenSize.h };
+      execSync(`wtp ${wid} ${pos.x} ${pos.y} ${pos.w} ${pos.h}`);
+    })
   }
 }
 
