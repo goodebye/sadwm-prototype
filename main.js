@@ -13,8 +13,8 @@ let activeWorkspace = 0;
 // lets grab screen height n width first!
 
 const screenSize = {w: 0, h: 0}
-screenSize[w] = execSync("wattr w $(lsw -r)");
-screenSize[h] = execSync("wattr h $(lsw -r)")
+screenSize.w = parseInt(execSync("wattr w $(lsw -r)"), 10);
+screenSize.h = parseInt(execSync("wattr h $(lsw -r)"), 10);
 
 console.log(screenSize);
 
