@@ -10,7 +10,7 @@ workspaces.push(new Workspace(workspaces.length))
 let activeWorkspace = 0;
 
 
-exec("lsw -a", (error, stdout, stderr) => {
+exec("lsw", (error, stdout, stderr) => {
   if (!error) {
     stdout.split("\n").map((wid) => {
       windows[wid] = new Window(wid);
